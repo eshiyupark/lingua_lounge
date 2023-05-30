@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  post 'vehicles', to: "vehicles#create"
-  get 'vehicles/new', to: "vehicles#new"
+  resources :vehicles, only: [:new, :create] do
+    resources :bookings, only: [:new, :create]
+  end
 end
