@@ -2,7 +2,6 @@ class BookingsController < ApplicationController
   before_action :set_vehicle, only: [:new,:create]
   def new
     @booking = Booking.new
-    @my_user = current_user.id
   end
 
   def create
@@ -18,6 +17,7 @@ class BookingsController < ApplicationController
   end
 
   private
+
   def set_vehicle
     @vehicle = Vehicle.find(params[:vehicle_id])
   end
