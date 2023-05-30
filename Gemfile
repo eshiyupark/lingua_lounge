@@ -30,6 +30,9 @@ gem "jbuilder"
 # Devise gem for authentication and user model
 gem "devise"
 
+# Faker gem for creating fake seeds
+gem "faker"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
