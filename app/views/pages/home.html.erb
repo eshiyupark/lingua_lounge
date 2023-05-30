@@ -1,5 +1,4 @@
-<h1>Pages#home</h1>
-
+<!-- nav bar, sign in logic required -->
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
@@ -14,25 +13,86 @@
       <ul class="navbar-nav me-auto">
         <%# <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%# <%= link_to "Home", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Vehicles", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "user-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Notifications", "#", class: "dropdown-item" %>
+              <%= link_to "Account Settings", "#", class: "dropdown-item" %>
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <%# <% else %>
-          <%# <--li class="nav-item"-->
+          <%# <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%# <--/li-->
-        <% end %> %
+          <%# </li > %>
+        <%# <% end %>
       </ul>
     </div>
+  </div>
+</div>
+
+<!-- banner, can change image later -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.kayak.com.au/news/wp-content/uploads/sites/23/2018/06/1.-the-nullabor-plain-australia-1.jpg);">
+  <div class="container">
+    <h1>Looking to rent a car?</h1>
+    <p>Find affordable car hire options in Australia</p>
+    <!-- placeholder searchbar just for how it looks, needs searchbar logic -->
+    <div class="container" id="search-bar">
+      <div id="itinerary-input">
+        <div class="itinerary">
+          <p>Location</p>
+          <div class="input">
+          </div>
+        </div>
+        <div class="itinerary">
+          <p>Pick up date</p>
+          <div class="input">
+          </div>
+        </div>
+        <div class="itinerary">
+          <p>Pick up time</p>
+          <div class="input">
+          </div>
+        </div>
+        <div class="itinerary">
+          <p>Drop off date</p>
+          <div class="input">
+          </div>
+        </div>
+        <div class="itinerary">
+          <p>Drop off time</p>
+          <div class="input">
+          </div>
+        </div>
+      </div>
+          <div class="btn"><%= link_to "Search", "#" %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cards Required -->
+<div class="container" id="content-container">
+  <div class="cards">
+  <p>Cards go here if required</p>
+  </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Made by LL squad
   </div>
 </div>
