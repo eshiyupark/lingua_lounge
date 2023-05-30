@@ -17,10 +17,11 @@ user_three = User.new(email: "monkeyman.@gmail.com", password: "secret", first_n
 user_three.save
 puts "Created users"
 
-puts "Creating 10 vehicles..."
+puts "Creating 15 vehicles..."
 
-10.times do
+15.times do
   vehicle = Vehicle.new(make: "#{Faker::Vehicle.make}", model: "#{Faker::Vehicle.model}", year: Faker::Vehicle.year, number_of_passengers: rand(4..7), transmission: ["automatic", "manual"].sample, price_per_day: rand(34.4..75.5).round(2), location: "#{Faker::Address.city}", description: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}")
+  vehicle.user = User.all.sample
   vehicle.save
 end
 
