@@ -29,7 +29,7 @@ gem "jbuilder"
 
 # Devise gem for authentication and user model
 gem "devise"
-
+gem "pundit"
 # Faker gem for creating fake seeds
 gem "faker"
 

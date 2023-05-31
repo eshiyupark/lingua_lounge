@@ -1,0 +1,25 @@
+<div class="container d-flex flex-column align-items-center p-2 border rounded">
+  <div class="show-vehicle-photo w-75 d-flex align-items-center justify-content-center">
+    <p>PHOTO GOES IN HERE</p>
+  </div>
+  <div class="d-flex align-items-center justify-content-center w-75">
+    <h3><%= @my_vehicle.year %> <%= @my_vehicle.make %> <%= @my_vehicle.model %></h3>
+  </div>
+  <div class="w-75">
+    <p class="font-weight-bold d-inline">Price per day:</p>
+    <p>$<%= @my_vehicle.price_per_day %></p>
+    <p class="font-weight-bold d-inline">Capacity:</p>
+    <p><%= @my_vehicle.number_of_passengers %></p>
+    <p class="font-weight-bold d-inline">Transmission:</p>
+    <p><%= @my_vehicle.transmission.capitalize %></p>
+    <p class="font-weight-bold d-inline">Location:</p>
+    <p><%= @my_vehicle.location %></p>
+    <p><%= @my_vehicle.description %></p>
+  </div>
+  <%= link_to "Edit this Vehicle", edit_my_vehicle_path %>
+  <%= link_to "Back to my vehicles", my_vehicles_path %>
+  <%= link_to "Delete this vehicle",
+  my_vehicle_path(@my_vehicle),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+</div>
