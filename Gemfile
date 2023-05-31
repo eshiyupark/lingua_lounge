@@ -33,6 +33,9 @@ gem "devise"
 # Faker gem for creating fake seeds
 gem "faker"
 
+# Geocoder gem to be able to use mapbox
+gem "geocoder"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

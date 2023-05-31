@@ -20,9 +20,19 @@ puts "Created users"
 puts "Creating 15 vehicles..."
 
 15.times do
-  vehicle = Vehicle.new(make: "#{Faker::Vehicle.make}", model: "#{Faker::Vehicle.model}", year: Faker::Vehicle.year, number_of_passengers: rand(4..7), transmission: ["automatic", "manual"].sample, price_per_day: rand(34.4..75.5).round(2), location: "#{Faker::Address.city}", description: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}")
+  vehicle = Vehicle.new(make: "#{Faker::Vehicle.make}", model: "#{Faker::Vehicle.model}", year: Faker::Vehicle.year, number_of_passengers: rand(4..7), transmission: ["automatic", "manual"].sample, price_per_day: rand(34.4..75.5).round(2), location: "#{Faker::Address.full_address}", description: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}")
   vehicle.user = User.all.sample
   vehicle.save
 end
 
 puts "Created vehicles"
+
+puts "Creating 2 vehicles with detailed location attributes..."
+vehicle_one = Vehicle.new(make: "#{Faker::Vehicle.make}", model: "#{Faker::Vehicle.model}", year: Faker::Vehicle.year, number_of_passengers: rand(4..7), transmission: ["automatic", "manual"].sample, price_per_day: rand(34.4..75.5).round(2), location: "228 La Trobe Street, Melbourne, VIC 3000", description: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}")
+vehicle_one.user = User.all.sample
+vehicle_one.save
+vehicle_two = Vehicle.new(make: "#{Faker::Vehicle.make}", model: "#{Faker::Vehicle.model}", year: Faker::Vehicle.year, number_of_passengers: rand(4..7), transmission: ["automatic", "manual"].sample, price_per_day: rand(34.4..75.5).round(2), location: "32 Beacon Hill Road, Beacon Hill, NSW 2100", description: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}")
+vehicle_two.user = User.all.sample
+vehicle_two.save
+
+puts "Created 2 vehicles with specific locations"
