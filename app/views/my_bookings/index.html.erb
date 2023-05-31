@@ -1,0 +1,22 @@
+<div class="container d-flex flex-column align-items-center justify-content-center">
+  <h2> Bookings made on your vehicles </h2>
+  <ul class="w-100">
+  <% @my_bookings.each do |booking| %>
+    <div class="card w-100">
+      <li>
+        <p><%= booking.vehicle.year %> <%= booking.vehicle.make %> <%= booking.vehicle.model %></p>
+        <p>Date from: <%= booking.date_from %></p>
+        <p>Date to: <%= booking.date_to %></p>
+        <p>Comment: <%= booking.comment %></p>
+        <% if booking.confirmation_status == nil %>
+        <!-- Implement actual buttons to change confirmation status --->
+          <button>Approve</button>
+          <button>Deny</button>
+        <% else %>
+          <p><%= booking.confirmation_status.capitalize %></p>
+        <% end %>
+      </li>
+    </div>
+    <% end %>
+  </ul>
+</div>
