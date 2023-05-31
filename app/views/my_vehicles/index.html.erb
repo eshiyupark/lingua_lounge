@@ -1,0 +1,15 @@
+<h1>Your listed Vehicles</h1>
+<div class="container">
+  <ul>
+    <% @my_vehicles.each do |car| %>
+      <div class="card">
+        <li>
+          <h4><%= link_to car.make, my_vehicle_path(car)%> <%= car.model %> - <%= car.year %></h4>
+          <h5>Price: $<%= car.price_per_day %> per day</h5>
+          <p>Capacity: <%= car.number_of_passengers %></p>
+          <p><%= car.transmission.capitalize %></p>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>

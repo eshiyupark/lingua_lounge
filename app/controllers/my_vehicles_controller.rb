@@ -1,28 +1,33 @@
 class MyVehiclesController < ApplicationController
-  before_action :set_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :edit, :update, :destroy]
 
   def index
-    @vehicles = Vehicle.all
+    @my_vehicles = policy_scope(Vehicle)
   end
 
-  def new
-    @vehicle = Vehicle.new
+  def show
+    authorize @my_vehicle
+    @my_vehicle = Vehicle.find(params[:id])
   end
 
   def edit
-    @vehicle = Vehicle.find(params[:id])
+    authorize @my_vehicle
+    @my_vehicle = Vehicle.find(params[:id])
   end
 
   def update
-    @vehicle = Vehicle.find(params[:id])
-    @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    authorize @my_vehicle
+    @my_vehicle = Vehicle.find(params[:id])
+    @my_vehicle.update(my_vehicle_params)
+    redirect_to my_vehicles_path
+    # redirect_to my_vehicle_path(@my_vehicle) # not working, goes back to main vehicle/:id page instead of my_vehicle/:id
   end
 
   def destroy
-    @vehicle = Vehicle.find(params[:id])
-    @vehicle.destroy
-    redirect_to vehicles_path, status: :see_other
+    authorize @my_vehicle
+    @my_vehicle = Vehicle.find(params[:id])
+    @my_vehicle.destroy
+    redirect_to my_vehicles_path, status: :see_other
   end
 
   private
@@ -31,7 +36,7 @@ class MyVehiclesController < ApplicationController
     @user = current_user
   end
 
-  def vehicle_params
+  def my_vehicle_params
     params.require(:vehicle).permit(:make, :model, :year, :number_of_passengers, :transmission, :price_per_day, :location, :description, :user_id)
   end
 end
