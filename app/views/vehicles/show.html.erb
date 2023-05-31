@@ -16,8 +16,10 @@
     <p><%= @vehicle.location %></p>
     <p><%= @vehicle.description %></p>
   </div>
+  <%= link_to "Edit", edit_vehicle_path %>
   <%= link_to "Delete",
   vehicle_path(@vehicle),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
+    <%= link_to "Back to all Vehicles", vehicles_path %>
 </div>
