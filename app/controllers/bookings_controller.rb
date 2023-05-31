@@ -5,12 +5,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # raise
     @booking = Booking.new(booking_params)
     @booking.vehicle = @vehicle
     @booking.user = current_user
     if @booking.save
-      redirect_to root
+      redirect_to "/"
+      # this will need to redirect to the relevant show page
     else
       render :new, status: :unprocessable_entity
     end

@@ -16,6 +16,7 @@
     <p><%= @vehicle.location %></p>
     <p><%= @vehicle.description %></p>
   </div>
+  <%= link_to "Make a booking", new_vehicle_booking_path(@vehicle) %>
   <%= link_to "Edit", edit_vehicle_path %>
   <%= link_to "Delete",
   vehicle_path(@vehicle),
