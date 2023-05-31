@@ -29,11 +29,13 @@ gem "jbuilder"
 
 # Devise gem for authentication and user model
 gem "devise"
-
+gem "pundit"
 # Faker gem for creating fake seeds
 gem "faker"
 
-gem "pundit"
+# Geocoder gem to be able to use mapbox
+gem "geocoder"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
