@@ -2,21 +2,22 @@ class MyVehiclesController < ApplicationController
   before_action :set_user, only: [:index, :edit, :update, :destroy]
 
   def index
-    @my_vehicles = policy_scope(Vehicle)
+    # @my_vehicles = policy_scope(Vehicle)
+    @my_vehicles = Vehicle.where(user_id: @user.id)
   end
 
   def show
-    authorize @my_vehicle
+    # authorize @my_vehicle
     @my_vehicle = Vehicle.find(params[:id])
   end
 
   def edit
-    authorize @my_vehicle
+    # authorize @my_vehicle
     @my_vehicle = Vehicle.find(params[:id])
   end
 
   def update
-    authorize @my_vehicle
+    # authorize @my_vehicle
     @my_vehicle = Vehicle.find(params[:id])
     @my_vehicle.update(my_vehicle_params)
     redirect_to my_vehicles_path
@@ -24,7 +25,7 @@ class MyVehiclesController < ApplicationController
   end
 
   def destroy
-    authorize @my_vehicle
+    # authorize @my_vehicle
     @my_vehicle = Vehicle.find(params[:id])
     @my_vehicle.destroy
     redirect_to my_vehicles_path, status: :see_other
