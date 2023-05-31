@@ -1,4 +1,8 @@
 <h1>Bookings</h1>
 <% @bookings.each do |booking| %>
-<h4><%= booking.id %></h4>
+<div class="card">
+<h4>User id:<%= booking.user.first_name %> Booking id:<%= booking.id %></h4>
+<p>From: <%= booking.date_from %> </p>
+<p> To:<%= booking.date_from %></p>
 <% end  %>
+</div>
