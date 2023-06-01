@@ -17,10 +17,14 @@
     <p><%= @vehicle.description %></p>
   </div>
   <%= link_to "Make a booking", new_vehicle_booking_path(@vehicle) %>
-  <%= link_to "Edit", edit_vehicle_path %>
+  <% if policy(@vehicle).edit? %>
+  <%= link_to "Edit this Vehicle", edit_vehicle_path %>
+  <% end %>
+  <% if policy(@vehicle).destroy? %>
   <%= link_to "Delete",
   vehicle_path(@vehicle),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
+  <% end %>
     <%= link_to "Back to all Vehicles", vehicles_path %>
 </div>
