@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :my_bookings, only: [:index, :update]
   resources :bookings, only: [:index, :show]
-  resources :my_vehicles
+  resources :my_vehicles, only: [:index]
 end

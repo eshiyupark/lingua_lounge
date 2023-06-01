@@ -1,7 +1,9 @@
 class VehiclesController < ApplicationController
   before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
   def index
+    @vehicles = policy_scope(Vehicle)
     @vehicles = Vehicle.all
     # Geocoder logic below
     @markers = @vehicles.geocoded.map do |vehicle|
@@ -30,29 +32,33 @@ class VehiclesController < ApplicationController
   end
 
   def show
-    @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
   end
 
   def edit
-    @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
   end
 
   def update
-    @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
     @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    redirect_to my_vehicles_path
   end
 
   def destroy
-    @vehicle = Vehicle.find(params[:id])
+    authorize @vehicle
     @vehicle.destroy
-    redirect_to vehicles_path, status: :see_other
+    redirect_to my_vehicles_path, status: :see_other
   end
 
   private
 
   def set_user
     @user = current_user
+  end
+
+  def set_vehicle
+    @vehicle = Vehicle.find(params[:id])
   end
 
   def vehicle_params
