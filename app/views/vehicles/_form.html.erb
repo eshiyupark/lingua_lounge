@@ -3,7 +3,7 @@
     <%= f.input :model %>
     <%= f.input :year %>
     <%= f.input :number_of_passengers %>
-    <%= f.input :transmission %>
+    <%= f.input :transmission, :collection => %w[automatic manual] %>
     <%= f.input :price_per_day %>
     <%= f.input :location,
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},

@@ -7,14 +7,15 @@
     margin: 0;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
+    font-family: 'Rubik';
   }
   p {
     font-size: 20px;
     color: white;
-    opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-family: 'Rubik';
   }
 }
 #search-bar{
@@ -40,7 +41,7 @@
 }
 
 .btn{
-  background-color: blue;
+  background-color: $green;
   text-decoration: none;
   margin: 10px;
   color: white;
@@ -75,10 +76,16 @@
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+  font-family: 'Rubik';
 }
 .footer-links a:hover {
   opacity: 1;
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.logoname{
+  height: 40px;
+  width: auto;
 }

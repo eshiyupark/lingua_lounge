@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column align-items-center justify-content-center">
-  <h2> Bookings made on your vehicles </h2>
+  <h1 class="page-header"> Bookings made on your vehicles </h1>
   <ul class="w-100">
   <% @my_bookings.each do |booking| %>
     <div class="card w-100">
@@ -9,12 +9,25 @@
         <p>Date to: <%= booking.date_to %></p>
         <p>Comment: <%= booking.comment %></p>
         <% if booking.confirmation_status == nil %>
-        <!-- Implement actual buttons to change confirmation status --->
-          <button>Approve</button>
-          <button>Deny</button>
-        <% else %>
-          <p><%= booking.confirmation_status.capitalize %></p>
-        <% end %>
+          <div class="d-flex align-items-center">
+            <%= simple_form_for booking, url: my_booking_path(booking), method: :patch do |f| %>
+              <%= f.hidden_field :confirmation_status, value: "approved" %>
+              <%= f.button :submit, "Approve" %>
+            <% end %>
+            <%= simple_form_for booking,  url: my_booking_path(booking), method: :patch do |f| %>
+              <%= f.hidden_field :confirmation_status, value: "rejected" %>
+              <%= f.button :submit, "Reject" %>
+            <% end %>
+          </div>
+          <% else %>
+            <p>Status: <%= booking.confirmation_status.capitalize %></p>
+            <%= simple_form_for booking,  url: my_booking_path(booking), method: :patch do |f| %>
+              <%= f.hidden_field :confirmation_status, value: "cancelled" %>
+              <% if booking.confirmation_status != "cancelled" %>
+                <%= f.button :submit, "Cancel", data: { turbo_confirm: 'Are you sure?' } %>
+              <% end %>
+            <% end %>
+          <% end %>
       </li>
     </div>
     <% end %>

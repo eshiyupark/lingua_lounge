@@ -4,6 +4,7 @@ class MyVehiclesController < ApplicationController
 
   def index
     @my_vehicles = policy_scope(Vehicle)
+    @my_vehicles = Vehicle.where(user_id: @user.id)
   end
 
   private
