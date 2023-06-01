@@ -4,35 +4,27 @@
     <h1 class="heading">Looking to rent a car?</h1>
     <p class="heading">Find affordable car hire options in Australia</p>
     <!-- placeholder searchbar just for how it looks, needs searchbar logic -->
-    <div class="container" id="search-bar">
-      <div id="itinerary-input">
-        <div class="itinerary">
-          <p>Location</p>
-          <div class="input">
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: vehicles_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :location,
+            params[:location],
+            class: "form-control",
+            placeholder: "Location"
+          %>
+          <%= text_field_tag :vehicle,
+            params[:vehicle],
+            class: "form-control",
+            placeholder: "Make/Model"
+          %>
+          <div class="d-flex align-items-center form-control">
+            <%= check_box_tag(:automatic) %>
+            <%= label_tag(:automatic, "Automatic") %>
+            <%= check_box_tag(:manual) %>
+            <%= label_tag(:manual, "Manual") %>
           </div>
-        </div>
-        <div class="itinerary">
-          <p>Pick up date</p>
-          <div class="input">
-          </div>
-        </div>
-        <div class="itinerary">
-          <p>Pick up time</p>
-          <div class="input">
-          </div>
-        </div>
-        <div class="itinerary">
-          <p>Drop off date</p>
-          <div class="input">
-          </div>
-        </div>
-        <div class="itinerary">
-          <p>Drop off time</p>
-          <div class="input">
-          </div>
-        </div>
-      </div>
-          <div class="btn"><%= link_to "Search", "#" %></div>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
