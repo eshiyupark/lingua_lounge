@@ -8,4 +8,16 @@ class Vehicle < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  include PgSearch::Model
+  pg_search_scope :search_by_location_make_model,
+    against: [ :location, :make, :model ],
+    using: {
+      tsearch: { prefix: true }
+    }
+  pg_search_scope :search_by_transmission,
+    against: [ :transmission ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

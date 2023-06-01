@@ -5,7 +5,14 @@ class VehiclesController < ApplicationController
 
   def index
     @vehicles = policy_scope(Vehicle)
-    # @vehicles = Vehicle.all
+    if params.key?(:location)
+      location = params[:location]
+      vehicle = params[:vehicle]
+      @vehicles = Vehicle.search_by_location_make_model("#{location} #{vehicle}") if params[:location] != "" || params[:vehicle] != ""
+      @vehicles = @vehicles.search_by_transmission("automatic") if params[:automatic] == "1" && params[:manual] == nil
+      @vehicles = @vehicles.search_by_transmission("manual") if params[:manual] == "1" && params[:automatic] == nil
+    end
+
     # Geocoder logic below
     @markers = @vehicles.geocoded.map do |vehicle|
       {
@@ -19,10 +26,12 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    authorize @vehicle
     @vehicle.user = current_user
     if @vehicle.save
       redirect_to vehicles_path

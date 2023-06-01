@@ -35,6 +35,10 @@ gem "faker"
 
 # Geocoder gem to be able to use mapbox
 gem "geocoder"
+
+# pg_search gem for search functionality
+gem "pg_search"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
