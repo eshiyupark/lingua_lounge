@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :my_bookings, only: [:index, :update]
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:index, :show, :edit, :update]
   resources :my_vehicles
 end
