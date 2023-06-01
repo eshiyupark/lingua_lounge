@@ -1,11 +1,7 @@
 class MyVehiclePolicy < ApplicationPolicy
-  # def update?
-  #   record.user == user
-  # end
-
-  # def destroy?
-  #   record.user == user
-  # end
+  def show?
+    true
+  end
 
   # class Scope < Scope
   #   # NOTE: Be explicit about which records you allow access to!
