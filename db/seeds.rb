@@ -1,9 +1,9 @@
 require 'faker'
 
-Vehicle.delete_all
-puts "Deleted all vehicles"
 Booking.delete_all
 puts "Deleted all bookings"
+Vehicle.delete_all
+puts "Deleted all vehicles"
 User.delete_all
 puts "Deleted all users"
 
