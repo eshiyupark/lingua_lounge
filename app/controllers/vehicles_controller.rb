@@ -1,7 +1,6 @@
 class VehiclesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
 
   def index
     @vehicles = Vehicle.all
