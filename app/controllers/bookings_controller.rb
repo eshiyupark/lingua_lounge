@@ -1,24 +1,37 @@
 class BookingsController < ApplicationController
   before_action :set_vehicle, only: [:new,:create]
+  before_action :set_booking, only: [:show,:edit,:update]
 
   def index
-    # @bookings = policy_scope(Booking)
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
+    # @bookings = Booking.all
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    authorize @booking
     @days = days_calculator(@booking.date_from, @booking.date_to)
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
+  end
+
+  def edit
+    authorize @booking
+  end
+
+  def update
+    authorize @booking
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.vehicle = @vehicle
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
@@ -27,6 +40,10 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def set_vehicle
     @vehicle = Vehicle.find(params[:vehicle_id])
