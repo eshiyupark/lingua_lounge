@@ -3,12 +3,10 @@
   <ul>
   <% @vehicles.each do |vehicle| %>
     <div class="card">
-      <li>
-        <h4><%= link_to vehicle.make, vehicle_path(vehicle)%> <%= vehicle.model %> - <%= vehicle.year %></h4>
-        <h5>Price: $<%= vehicle.price_per_day %> per day</h5>
-        <p>Capacity: <%= vehicle.number_of_passengers %></p>
-        <p><%= vehicle.transmission.capitalize %></p>
-      </li>
+      <h4><%= link_to vehicle.make, vehicle_path(vehicle)%> <%= vehicle.model %> - <%= vehicle.year %></h4>
+      <h5>Price: $<%= vehicle.price_per_day %> per day</h5>
+      <p>Capacity: <%= vehicle.number_of_passengers %></p>
+      <p><%= vehicle.transmission.capitalize %></p>
     </div>
     <% end %>
   </ul>
