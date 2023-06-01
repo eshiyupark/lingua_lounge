@@ -2,11 +2,13 @@ class MyBookingsController < ApplicationController
   before_action :set_user, only: [:index]
 
   def index
+    @my_bookings = policy_scope(Vehicle)
     @my_bookings = Booking.where(vehicle_id: @user.vehicles.ids)
   end
 
   def update
     @my_booking = Booking.find(params[:id])
+    authorize(@my_booking, policy_class: MyBookingPolicy)
     @my_booking.confirmation_status = params[:booking][:confirmation_status]
     if @my_booking.save
       redirect_to my_bookings_path
