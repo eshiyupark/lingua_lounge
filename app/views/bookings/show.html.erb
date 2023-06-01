@@ -11,6 +11,7 @@
     <p><strong>Total cost: </strong>$<%=(@days * @booking.vehicle.price_per_day).round(2) %> </p>
   </div>
 
-  <%= link_to "Edit", edit_booking_path %>
+  <%= link_to "Edit", edit_booking_path , class: 'btn btn-primary'%>
+  <%= link_to "Back", bookings_path , class: 'btn btn-primary'%>
 
 </div>

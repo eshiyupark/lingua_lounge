@@ -5,7 +5,7 @@ class VehiclesController < ApplicationController
 
   def index
     @vehicles = policy_scope(Vehicle)
-    @vehicles = Vehicle.all
+    # @vehicles = Vehicle.all
     # Geocoder logic below
     @markers = @vehicles.geocoded.map do |vehicle|
       {

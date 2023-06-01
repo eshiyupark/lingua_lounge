@@ -1,5 +1,5 @@
 <div class="container">
-  <h2> View all vehicles available for hire </h2>
+  <h1 class="page-header"> View all vehicles available for hire </h1>
   <ul>
   <% @vehicles.each do |vehicle| %>
     <div class="card">
@@ -11,7 +11,7 @@
     <% end %>
   </ul>
 </div>
-
+<%= link_to "Back", root_path , class: 'btn btn-primary'%>
 <div class="container">
   <!-- Testing mapbox, will need to be formatted and placed correctly -->
   <%= render "vehicles/mapbox" %>
