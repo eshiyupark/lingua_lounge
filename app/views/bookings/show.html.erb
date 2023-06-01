@@ -1,13 +1,16 @@
-<h4>Booking Details :Booking_<%= @booking.id %></h4>
+<div class="container">
+  <h4>Booking Details :Booking_<%= @booking.id %></h4>
+  <div class="card">
+    <p><strong>Customer name:</strong> <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+    <p><strong>Vehicle model: </strong><%= @booking.vehicle.model%></p>
+    <p><strong>From: </strong><%= @booking.date_from %></p>
+    <P><strong>To : </strong><%= @booking.date_to%></P>
+    <P><strong>Cost per day: </strong>$<%= @booking.vehicle.price_per_day%></P>
+    <P><strong>Duration: </strong><%= @days %>
+    <p><strong>Total cost: </strong>$<%=(@days * @booking.vehicle.price_per_day).round(2) %> </p>
+  </div>
 
-<div class="card">
-  <p><strong>Customer name:</strong> <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
-  <p><strong>Vehicle model: </strong><%= @booking.vehicle.model%></p>
-  <p><strong>From: </strong><%= @booking.date_from %></p>
-  <P><strong>To : </strong><%= @booking.date_to%></P>
-  <P><strong>Cost per day: </strong>$<%= @booking.vehicle.price_per_day%></P>
-  <P><strong>Duration: </strong><%= @days %>
-  <p><strong>Total cost: </strong>$<%=(@days * @booking.vehicle.price_per_day).round(2) %> </p>
+  <%= link_to "Edit", edit_booking_path , class: 'btn btn-primary'%>
+  <%= link_to "Back", bookings_path , class: 'btn btn-primary'%>
+
 </div>
-
-<%= link_to "Edit", edit_booking_path %>

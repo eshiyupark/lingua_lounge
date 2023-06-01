@@ -1,10 +1,14 @@
-<h1>Bookings</h1>
-<% @bookings.each do |booking| %>
-  <div class="card">
-    <h4>Name:<%= booking.user.first_name %> Booking id:<%= booking.id %></h4>
-    <p>From: <%= booking.date_from %> </p>
-    <p> To:<%= booking.date_from %></p>
-    <p><%= booking.comment %></p>
-    <%= link_to "Details", booking_path(booking) %>
-  </div>
-<% end  %>
+<div class="container">
+  <h1>Bookings</h1>
+  <% @bookings.each do |booking| %>
+    <div class="card">
+      <h4>Name:<%= booking.user.first_name %> Booking id:<%= booking.id %></h4>
+      <p>From: <%= booking.date_from %> </p>
+      <p> To:<%= booking.date_to %></p>
+      <p><%= booking.comment %></p>
+      <%= link_to "Details", booking_path(booking) %>
+    </div>
+  <% end  %>
+  <%= link_to "Back", root_path , class: 'btn btn-primary'%>
+
+</div>
