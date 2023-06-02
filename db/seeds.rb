@@ -27,12 +27,17 @@ end
 
 puts "Created vehicles"
 
-puts "Creating 2 vehicles with detailed location attributes..."
+puts "Creating 2 vehicles with detailed location attributes, and owner as John Doe..."
 vehicle_one = Vehicle.new(make: "#{Faker::Vehicle.make}", model: "#{Faker::Vehicle.model}", year: Faker::Vehicle.year, number_of_passengers: rand(4..7), transmission: ["automatic", "manual"].sample, price_per_day: rand(34.4..75.5).round(2), location: "228 La Trobe Street, Melbourne, VIC 3000", description: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}")
-vehicle_one.user = User.all.sample
+vehicle_one.user = user_one
 vehicle_one.save
 vehicle_two = Vehicle.new(make: "#{Faker::Vehicle.make}", model: "#{Faker::Vehicle.model}", year: Faker::Vehicle.year, number_of_passengers: rand(4..7), transmission: ["automatic", "manual"].sample, price_per_day: rand(34.4..75.5).round(2), location: "32 Beacon Hill Road, Beacon Hill, NSW 2100", description: "#{Faker::Quotes::Shakespeare.romeo_and_juliet_quote}")
-vehicle_two.user = User.all.sample
+vehicle_two.user = user_one
 vehicle_two.save
 
-puts "Created 2 vehicles with specific locations"
+puts "Created 2 vehicles with specific locations, and owner as John Doe"
+
+puts "Creating fresh user with no vehicles and no bookings..."
+user_four = User.new(email: "jamieheo@gmail.com", password: "secret", first_name: "Jamie", last_name: "Heo", licence_number: "N12325", date_of_birth: "1994-03-22", phone_number: "91232567")
+user_four.save
+puts "Created user with no vehicles and bookings."

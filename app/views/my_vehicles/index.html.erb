@@ -5,29 +5,13 @@
   <% end %>
   <div class="w-100" data-controller="insert-in-list">
     <div class="index-grid w-100" data-insert-in-list-target="items">
-      <% @my_vehicles.each do |car| %>
-        <div class="card_edit w-100">
-          <div>
-            <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
-          </div>
-          <div  class="card_details">
-            <div>
-              <h4><strong><%= link_to car.make, vehicle_path(car)%> <%= car.model %> - <%= car.year %> </strong></h4>
-              <p>Capacity: <%= car.number_of_passengers %></p>
-              <p><%= car.transmission.capitalize %></p>
-              <%= link_to "Details", vehicle_path(car), class: "btn" %>
-            </div>
-            <div class="cost">
-              <p><em>price per day</em></p>
-              <h5>$<%= car.price_per_day %></h5>
-            </div>
-          </div>
-        </div>
+      <% @my_vehicles.each do |vehicle| %>
+        <%= render "my_vehicles/listing", vehicle: vehicle %>
       <% end %>
     </div>
-    <div class="w-100 border border-info rounded p-4">
+    <div class="w-100 border border-info rounded p-4 my-3">
       <h3>Add a new vehicle</h3>
-      <%= render "vehicles/form" %>
+      <%= render "vehicles/form", vehicle: @vehicle %>
     </div>
   </div>
 </div>
