@@ -19,12 +19,11 @@
     font-family: 'Rubik';
   }
 }
-#search-bar{
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px rgba(0,0,0,.1);
+.main-search-bar{
+  border-radius: 9px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
   background-color: white;
-  display: flex;
-  justify-content: space-between;
+  height: 60px;
 }
 
 #itinerary-input{

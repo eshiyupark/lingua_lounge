@@ -45,15 +45,29 @@
     <p><%= @vehicle.location %></p>
     <p><%= @vehicle.description %></p>
   </div>
-  <%= link_to "Make a booking", new_vehicle_booking_path(@vehicle) %>
-  <% if policy(@vehicle).edit? %>
-  <%= link_to "Edit this Vehicle", edit_vehicle_path %>
-  <% end %>
-  <% if policy(@vehicle).destroy? %>
-  <%= link_to "Delete",
-  vehicle_path(@vehicle),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-  <% end %>
-    <%= link_to "Back to all Vehicles", vehicles_path %>
+
+  <div class="btns-div">
+    <div>
+      <%= link_to "Make a Booking",new_vehicle_booking_path(@vehicle) ,class:"back-btn"%>
+    </div>
+    <div>
+      <% if policy(@vehicle).edit? %>
+        <%= link_to  edit_vehicle_path do%>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% if policy(@vehicle).destroy? %>
+        <%= link_to vehicle_path(@vehicle),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do
+        %>
+        <i class="fa-solid fa-trash"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "Back", root_path , class:"back-btn"%>
+    </div>
+  </div>
 </div>

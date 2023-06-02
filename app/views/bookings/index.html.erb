@@ -1,21 +1,29 @@
-<div class="container">
-  <h1 class="page-header">Bookings</h1>
-
-  <% @bookings.each do |booking| %>
-    <div class="card_edit">
-      <div>
-        <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
-      </div>
-      <div class="card_details">
+<div class="container w-100 d-flex flex-column align-items-center justify-content-center">
+  <h1 class="page-header my-3"> My bookings</h1>
+  <% if @my_bookings.blank? %>
+    <h3 class="my-5">You have not made any bookings yet</h3>
+  <% end %>
+  <div class="index-grid w-100">
+    <% @bookings.each do |booking| %>
+      <div class="card_edit">
         <div>
-          <h4>Name:<%= booking.user.first_name %> Booking id:<%= booking.id %></h4>
-          <p>From: <%= booking.date_from %> </p>
-          <p> To:<%= booking.date_to %></p>
-          <%= link_to "Details", booking_path(booking), class: "btn" %>
+          <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
         </div>
-        <%# <p> <%= booking.completion_status %>
+        <div class="card_details">
+          <div>
+            <h4>Name:<%= booking.user.first_name %> Booking id:<%= booking.id %></h4>
+            <p>From: <%= booking.date_from %> </p>
+            <p> To:<%= booking.date_to %></p>
+            <%= link_to "Details", booking_path(booking), class: "btn" %>
+          </div>
+          <%# <p> <%= booking.completion_status %>
+        </div>
       </div>
-    </div>
-  <% end  %>
-  <%= link_to "Back", root_path , class: 'btn btn-primary'%>
+    <% end  %>
+  </div>
+  <div class="btns-div">
+    <%= link_to "Back", root_path , class:"back-btn"%>
+  </div>
 </div>
+
+

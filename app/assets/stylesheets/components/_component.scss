@@ -21,7 +21,7 @@
   border: 2px solid #31AF91;
   border-radius: 10px;
   padding: 23px;
-  width: 700px;
+  width: auto;
   margin-top: 10px;
 }
 .car_image{
@@ -38,11 +38,9 @@
     color: #F36242;;
   }
 }
-.show-vehicle-photo.w-75.d-flex.align-items-center.justify-content-center{
-  .car_image{
-    margin-left: 80px;
-  }
-}
-.page-header{
-  margin-left: 40px;
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
