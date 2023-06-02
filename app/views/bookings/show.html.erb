@@ -1,24 +1,33 @@
-<div class="container">
-  <h4>Booking Details :Booking_<%= @booking.id %></h4>
+<div class="container d-flex flex-column align-items-center p-2 border rounded">
 
-  <div class="card_edit">
-    <div>
+  <div class="d-flex align-items-center justify-content-center w-75">
+    <h4>Booking Details :Booking_<%= @booking.id %></h4>
+  </div>
+  <div class="w-75">
+    <div class="show-vehicle-photo w-75 d-flex align-items-center justify-content-center">
       <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
     </div>
-
-    <div class="booking_details">
-      <p class="owner_name"><strong>Customer name:</strong> <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
-      <p><strong>Vehicle model: </strong><%= @booking.vehicle.model%></p>
-      <p><strong>From: </strong><%= @booking.date_from %></p>
-      <P><strong>To : </strong><%= @booking.date_to%></P>
-      <P><strong>Cost per day: </strong>$<%= @booking.vehicle.price_per_day%></P>
-      <P><strong>Duration: </strong><%= @days %>
-      <p><strong>Total cost: </strong>$<%=(@days * @booking.vehicle.price_per_day).round(2) %> </p>
+    <div>
+      <p class="font-weight-bold d-inline"><strong>Customer:</strong> </p>
+      <p><%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+      <%# <p><strong>Vehicle model: </strong><%= @booking.vehicle.model%>
+      <p class="font-weight-bold d-inline"><strong>From: </strong></p>
+      <p><%= @booking.date_from %></p>
+      <p class="font-weight-bold d-inline"><strong>To : </strong></p>
+      <p><%= @booking.date_to%></P>
+      <%# <P><strong>Cost per day: </strong>$<%= @booking.vehicle.price_per_day%>
+      <%# <P><strong>Duration: </strong><%= @days %>
+      <p class="font-weight-bold d-inline"><strong>Booking Reference: </strong></p>
+      <p><%= @booking.id %> </p>
     </div>
-
+    <div class="cost">
+      <%# <P><%= @booking.confirmation_status %>
+      <p><strong> $ <%=(@days * @booking.vehicle.price_per_day).round(2) %> </p></strong>
+    </div>
   </div>
 
-  <%= link_to "Edit", edit_booking_path , class: 'btn btn-primary'%>
-  <%= link_to "Back", bookings_path , class: 'btn btn-primary'%>
+
+  <%= link_to "Edit", edit_booking_path%>
+  <%= link_to "Back", bookings_path%>
 
 </div>

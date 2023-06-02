@@ -2,12 +2,19 @@
   <h1 class="page-header">Bookings</h1>
 
   <% @bookings.each do |booking| %>
-    <div class="card">
-      <h4>Name:<%= booking.user.first_name %> Booking id:<%= booking.id %></h4>
-      <p>From: <%= booking.date_from %> </p>
-      <p> To:<%= booking.date_to %></p>
-      <p><%= booking.comment %></p>
-      <%= link_to "Details", booking_path(booking) %>
+    <div class="card_edit">
+      <div>
+        <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
+      </div>
+      <div class="card_details">
+        <div>
+          <h4>Name:<%= booking.user.first_name %> Booking id:<%= booking.id %></h4>
+          <p>From: <%= booking.date_from %> </p>
+          <p> To:<%= booking.date_to %></p>
+          <%= link_to "Details", booking_path(booking), class: "btn" %>
+        </div>
+        <%# <p> <%= booking.completion_status %>
+      </div>
     </div>
   <% end  %>
 
