@@ -3,7 +3,7 @@
   background: $main;
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: 80px;
   top: 0px;
   z-index: 9999;
   margin: 0;
@@ -15,8 +15,11 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  height: 80px;
+  height: 60px;
   width: auto;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: flex-start;
   margin-top: 0;
   padding: 0;
 }
@@ -35,8 +38,18 @@ a{
   margin-bottom: 0;
 }
 
-.welcome{
+.nav-link{
   p{
-    padding: 0;
+    margin-bottom: 0;
   }
+}
+
+.car{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.navbar-brand{
+  margin-top: 0;
+  padding: 0;
 }

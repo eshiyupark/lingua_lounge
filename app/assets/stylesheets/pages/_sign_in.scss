@@ -1,0 +1,27 @@
+#sign-in{
+  padding: 50px;
+  h1{
+    margin-left: 0;
+  }
+}
+
+.form-actions{
+  display: flex;
+  justify-content: center;
+  .btn{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.add-links{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  p{
+    margin-bottom: 0;
+    color: $text;
+    font-size: 14px;
+    margin-left: auto;
+  }
+}
