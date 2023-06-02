@@ -38,8 +38,9 @@
     color: #F36242;;
   }
 }
-.show-vehicle-photo.w-75.d-flex.align-items-center.justify-content-center{
-  .car_image{
-    margin-left: 80px;
-  }
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
