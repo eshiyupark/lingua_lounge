@@ -3,10 +3,13 @@
   <div class="d-flex align-items-center justify-content-center w-75">
     <h4>Booking Details :Booking_<%= @booking.id %></h4>
   </div>
-  <div class="w-75">
-    <div class="show-vehicle-photo w-75 d-flex align-items-center justify-content-center">
+
+  <div class="show-vehicle-photo w-75 d-flex align-items-center justify-content-center">
+    <div >
       <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
     </div>
+  </div>
+  <div class="w-75">
     <div>
       <p class="font-weight-bold d-inline"><strong>Customer:</strong> </p>
       <p><%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
@@ -26,8 +29,13 @@
     </div>
   </div>
 
+  <div class="btns-div">
+    <div>
+      <%= link_to edit_booking_path do%>
+        <i class="fa-solid fa-pen-to-square"></i>
+      <% end %>
+    </div>
 
-  <%= link_to "Edit", edit_booking_path%>
-  <%= link_to "Back", bookings_path%>
-
+    <%= link_to "Back", root_path , class:"back-btn"%>
+  </div>
 </div>

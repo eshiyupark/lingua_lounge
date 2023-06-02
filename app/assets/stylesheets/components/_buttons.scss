@@ -1,0 +1,12 @@
+.btns-div{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  .back-btn{
+    background-color: #F36242;
+    color: white;
+    text-decoration: none;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+}
