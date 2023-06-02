@@ -1,6 +1,6 @@
 <div class="container w-100 d-flex flex-column align-items-center justify-content-center">
   <h1 class="page-header my-3"> My bookings</h1>
-  <% if @my_bookings.blank? %>
+  <% if @bookings.blank? %>
     <h3 class="my-5">You have not made any bookings yet</h3>
   <% end %>
   <div class="index-grid w-100">
@@ -25,5 +25,3 @@
     <%= link_to "Back", root_path , class:"back-btn"%>
   </div>
 </div>
-
-

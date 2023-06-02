@@ -1,5 +1,4 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: $main;
   position: fixed;
   width: 100%;
@@ -8,6 +7,7 @@
   z-index: 9999;
   margin: 0;
   padding: 0;
+  display: block !important;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -52,4 +52,13 @@ a{
 .navbar-brand{
   margin-top: 0;
   padding: 0;
+}
+
+.logoname{
+  height: 80px;
+}
+
+.left, .right {
+  flex-grow: 1;
+  flex-basis: 0;
 }
