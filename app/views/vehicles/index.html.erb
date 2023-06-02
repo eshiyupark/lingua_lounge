@@ -1,32 +1,28 @@
-<div class="container">
-  <h1 class="page-header"> View all vehicles available for hire </h1>
-  <ul>
-  <% @vehicles.each do |vehicle| %>
-    <div class="card_edit">
-      <div>
-        <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
-      </div>
-      <div  class="card_details">
+<div class="container d-flex flex-column align-items-center w-100">
+  <h1 class="page-header my-3"> View all vehicles available for hire </h1>
+  <div class="d-flex align-items-center justify-content-center w-100 border border-info rounded">
+    <%= render "vehicles/mapbox" %>
+  </div>
+  <div class="index-grid">
+    <% @vehicles.each do |vehicle| %>
+      <div class="card_edit">
         <div>
-          <h4><strong><%= link_to vehicle.make, vehicle_path(vehicle)%> <%= vehicle.model %> - <%= vehicle.year %> </strong></h4>
-          <p>Capacity: <%= vehicle.number_of_passengers %></p>
-          <p><%= vehicle.transmission.capitalize %></p>
-          <%= link_to "View Deal", vehicle_path(vehicle), class: "btn" %>
+          <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
         </div>
-        <div class="cost">
-          <p><em>price per day</em></p>
-          <h5>$<%= vehicle.price_per_day %></h5>
+        <div  class="card_details">
+          <div>
+            <h4><strong><%= link_to vehicle.make, vehicle_path(vehicle)%> <%= vehicle.model %> - <%= vehicle.year %> </strong></h4>
+            <p>Capacity: <%= vehicle.number_of_passengers %></p>
+            <p><%= vehicle.transmission.capitalize %></p>
+            <%= link_to "View Deal", vehicle_path(vehicle), class: "btn" %>
+          </div>
+          <div class="cost">
+            <p><em>price per day</em></p>
+            <h5>$<%= vehicle.price_per_day %></h5>
+          </div>
         </div>
-
       </div>
-    </div>
-
     <% end %>
   </div>
   <%= link_to "Back", root_path , class: 'btn btn-primary'%>
-</div>
-
-<div class="container">
-  <!-- Testing mapbox, will need to be formatted and placed correctly -->
-  <%= render "vehicles/mapbox" %>
 </div>

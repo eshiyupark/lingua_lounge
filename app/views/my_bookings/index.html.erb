@@ -1,10 +1,14 @@
-<div class="container d-flex flex-column align-items-center justify-content-center">
-  <h1 class="page-header"> Bookings made on your vehicles </h1>
-  <ul class="w-100">
+<div class="container w-100 d-flex flex-column align-items-center justify-content-center">
+  <h1 class="page-header my-3"> Bookings made on your vehicles </h1>
+  <% if @my_bookings.blank? %>
+    <h3 class="my-5">You have no booking requests yet</h3>
+  <% end %>
+  <div class="index-grid w-100">
   <% @my_bookings.each do |booking| %>
-    <div class="card w-100">
-      <li>
-        <p><%= booking.vehicle.year %> <%= booking.vehicle.make %> <%= booking.vehicle.model %></p>
+    <div class="card w-100 d-flex flex-column">
+      <div class="d-flex align-items-center justify-content-center my-2">
+        <h3><%= booking.vehicle.year %> <%= booking.vehicle.make %> <%= booking.vehicle.model %></h3>
+      </div>
         <p>Date from: <%= booking.date_from %></p>
         <p>Date to: <%= booking.date_to %></p>
         <p>Comment: <%= booking.comment %></p>
@@ -28,8 +32,7 @@
               <% end %>
             <% end %>
           <% end %>
-      </li>
-    </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
