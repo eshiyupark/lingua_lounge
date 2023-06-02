@@ -2,3 +2,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.empty{
+  height: 40px;
+}
+
+.top-line{
+  display: flex;
+  justify-content: space-evenly;
+}
