@@ -1,23 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "car-logo.png", class: "car" %>
+      <%= image_tag "white-car.svg", class: "car" %>
     <% end %>
-    <%= image_tag "name-logo.png", class: "logoname" %>
+    <%= image_tag "name-logo-white.png", class: "logoname" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <%= link_to "Vehicles", vehicles_path, class: "nav-link" %>
-          </li>
-          <% if current_user  %>
+        
           <%# <li class="nav-item active"> %>
             <li class="nav-link">
               <p><%= current_user.first_name %> <%= current_user.last_name %></p>
             </li>
+        
           <% end %>
           <li class="nav-item dropdown">
             <%= image_tag "user-icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -37,6 +35,7 @@
                 <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
               <% end %>
             </div>
+          </div>
           </li>
       </ul>
     </div>

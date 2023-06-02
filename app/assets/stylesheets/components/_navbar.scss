@@ -1,10 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $main;
   position: fixed;
   width: 100%;
   top: 0px;
   z-index: 9999;
+  margin: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,10 +13,17 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  height: 40px;
+  height: 80px;
   width: auto;
+  margin-top: 0;
 }
 
 a{
-  color: $text
+  color: white;
+}
+
+.navi-left{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

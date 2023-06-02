@@ -20,10 +20,12 @@
 
       </div>
     </div>
+
     <% end %>
-  </ul>
+  </div>
+  <%= link_to "Back", root_path , class: 'btn btn-primary'%>
 </div>
-<%= link_to "Back", root_path , class: 'btn btn-primary'%>
+
 <div class="container">
   <!-- Testing mapbox, will need to be formatted and placed correctly -->
   <%= render "vehicles/mapbox" %>
