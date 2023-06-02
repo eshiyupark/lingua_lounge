@@ -1,13 +1,26 @@
-<div class="container d-flex flex-column align-items-center w-75">
-  <h1 class="page-header"> All available vehicles </h1>
-  <div class="index-grid w-100">
-    <% @vehicles.each do |vehicle| %>
-      <div class="card">
-        <h4><%= link_to vehicle.make, vehicle_path(vehicle)%> <%= vehicle.model %> - <%= vehicle.year %></h4>
-        <h5>Price: $<%= vehicle.price_per_day %> per day</h5>
-        <p>Capacity: <%= vehicle.number_of_passengers %></p>
-        <p><%= vehicle.transmission.capitalize %></p>
+<div class="container">
+  <h1 class="page-header"> View all vehicles available for hire </h1>
+  <ul>
+  <% @vehicles.each do |vehicle| %>
+    <div class="card_edit">
+      <div>
+        <%= image_tag "Nissan_SUV.jpg", alt: "Le Wagon", width: 200, class:"car_image"%>
       </div>
+      <div  class="card_details">
+        <div>
+          <h4><strong><%= link_to vehicle.make, vehicle_path(vehicle)%> <%= vehicle.model %> - <%= vehicle.year %> </strong></h4>
+          <p>Capacity: <%= vehicle.number_of_passengers %></p>
+          <p><%= vehicle.transmission.capitalize %></p>
+          <%= link_to "View Deal", vehicle_path(vehicle), class: "btn" %>
+        </div>
+        <div class="cost">
+          <p><em>price per day</em></p>
+          <h5>$<%= vehicle.price_per_day %></h5>
+        </div>
+
+      </div>
+    </div>
+
     <% end %>
   </div>
   <%= link_to "Back", root_path , class: 'btn btn-primary'%>

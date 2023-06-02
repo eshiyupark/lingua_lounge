@@ -16,3 +16,33 @@
 .heading{
    padding-left: 300px;
 }
+.card_edit{
+  display: flex;
+  border: 2px solid #31AF91;
+  border-radius: 10px;
+  padding: 23px;
+  width: 700px;
+  margin-top: 10px;
+}
+.car_image{
+  border-radius: 5px;
+  margin-left: 5px;
+  box-shadow: rgba(238, 178, 100, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.card_details{
+  margin-left: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  .cost{
+    color: #F36242;;
+  }
+}
+.show-vehicle-photo.w-75.d-flex.align-items-center.justify-content-center{
+  .car_image{
+    margin-left: 80px;
+  }
+}
+.page-header{
+  margin-left: 40px;
+}
