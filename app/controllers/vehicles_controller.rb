@@ -33,12 +33,22 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     authorize @vehicle
     @vehicle.user = current_user
-    if @vehicle.save
-      redirect_to vehicles_path
-    else
-      render :new, status:
-      :unprocessable_entity
+
+    respond_to do |format|
+      if @vehicle.save
+        format.html { redirect_to my_vehicles_path }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      else
+        format.html { render "my_vehicles/index", status: :unprocessable_entity }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      end
     end
+    # if @vehicle.save
+    #   redirect_to vehicles_path
+    # else
+    #   render :new, status:
+    #   :unprocessable_entity
+    # end
   end
 
   def show

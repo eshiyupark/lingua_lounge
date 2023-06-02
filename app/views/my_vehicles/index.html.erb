@@ -1,20 +1,20 @@
-<h1 class="page-header">Your listed Vehicles</h1>
-<div class="container">
-  <ul class="w-100">
-    <% @my_vehicles.each do |car| %>
-      <div class="card w-100">
-        <li>
-          <h4><%= link_to car.make, vehicle_path(car)%> <%= car.model %> - <%= car.year %></h4>
-          <h5>Price: $<%= car.price_per_day %> per day</h5>
-          <p>Capacity: <%= car.number_of_passengers %></p>
-          <p><%= car.transmission.capitalize %></p>
-        </li>
-      </div>
-    <% end %>
-  </ul>
-
+<div class="container w-100 d-flex flex-column align-items-center justify-content-center">
+  <h1 class="page-header my-3">Your listed vehicles</h1>
+  <% if @my_vehicles.blank? %>
+    <h3 class="my-5">You have not listed any vehicles yet</h3>
+  <% end %>
+  <div class="w-100" data-controller="insert-in-list">
+    <div class="index-grid w-100" data-insert-in-list-target="items">
+      <% @my_vehicles.each do |vehicle| %>
+        <%= render "my_vehicles/listing", vehicle: vehicle %>
+      <% end %>
+    </div>
+    <div class="w-100 border border-info rounded p-4 my-3">
+      <h3>Add a new vehicle</h3>
+      <%= render "vehicles/form", vehicle: @vehicle %>
+    </div>
+  </div>
   <div class="btns-div">
     <%= link_to "Back", root_path , class:"back-btn"%>
   </div>
-
 </div>
