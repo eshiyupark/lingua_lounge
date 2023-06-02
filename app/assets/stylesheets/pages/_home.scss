@@ -46,6 +46,11 @@
   margin: 10px;
   color: white;
   border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #83b1a6;;
 }
 
 #content-container{
@@ -85,7 +90,3 @@
   color: #D23333;
 }
 
-.logoname{
-  height: 80px;
-  width: auto;
-}

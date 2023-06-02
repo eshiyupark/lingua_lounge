@@ -1,20 +1,23 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "white-car.svg", class: "car" %>
-    <% end %>
-    <%= image_tag "name-logo-white.png", class: "logoname" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="d-flex justify-content-between">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="left d-flex align-items-center justify-content-start ps-4">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <%= image_tag "white-car.svg", class: "car" %>
+      <% end %>
+    </div>
+
+    <div class="middle">
+      <%= image_tag "name-logo-white.png", class: "logoname" %>
+    </div>
+
+    <div class="right d-flex align-items-center justify-content-end pe-4">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <%= link_to "Vehicles", vehicles_path, class: "nav-link" %>
+            <%= link_to "Browse vehicles", vehicles_path, class: "nav-link text-white" %>
           </li>
           <% if current_user  %>
-          <%# <li class="nav-item active"> %>
             <li class="nav-link">
               <p><%= current_user.first_name %> <%= current_user.last_name %></p>
             </li>
@@ -37,9 +40,9 @@
                 <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
               <% end %>
             </div>
-          </div>
           </li>
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

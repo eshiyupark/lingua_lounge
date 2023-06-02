@@ -2,11 +2,12 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  .back-btn{
-    background-color: #F36242;
-    color: white;
-    text-decoration: none;
-    padding: 1px 4px;
-    border-radius: 3px;
-  }
+}
+
+.back-btn{
+  background-color: #F36242;
+  color: white;
+  text-decoration: none;
+  padding: 3px 7px;
+  border-radius: 3px;
 }
