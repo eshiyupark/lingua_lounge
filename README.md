@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Car hire web application built using Ruby on Rails.
+
+Built as a group project during the Le Wagon bootcamp, consisting of three members.
